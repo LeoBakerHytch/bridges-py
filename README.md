@@ -15,5 +15,5 @@ File format
 
 Puzzle files are in plaintext, with a single line for each row of the grid.
 Islands are represented by a single digit, specifying the number of bridges
-terminating there (at most 8, as per the rules of the game). Each empty space on
-the board is represented by a zero.
+terminating there (at most 8, as per the rules of the game). Empty spaces on
+the board are represented by the space character.
