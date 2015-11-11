@@ -2,15 +2,19 @@ import sys
 
 def load_puzzle(filename):
     """
-    Loads and validates a ‘Bridges’ puzzle from a file
+    Loads a ‘Bridges’ puzzle from a file.
+
+    Each line in the file is treated as a row in the puzzle grid. Positive
+    digits are treated as islands, spaces and zeroes are treated as empty spaces
+    in the grid, and all other characters are rejected as invalid input.
 
     Args:
-        filename: The name of a file containing the puzzle
+        filename: The name of a file containing the puzzle.
 
     Returns:
         A two-dimensional array of integers (indexed by row, then column)
         representing the puzzle, with positive numbers for islands and zeroes
-        for empty spaces
+        for empty spaces.
     """
 
     try:
