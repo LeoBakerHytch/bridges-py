@@ -21,8 +21,5 @@ def load_puzzle(filename):
         with open(filename, encoding='utf-8') as puzzle_file:
             pass
 
-    except FileNotFoundError as e:
-        sys.exit('Could not find the puzzle file ‘{}’'.format(filename))
-
     except IOError as e:
-        sys.exit('Error reading the puzzle file ‘{}’'.format(filename))
+        sys.exit('Error reading the puzzle file ‘{}’ ({})'.format(filename, e.strerror))
