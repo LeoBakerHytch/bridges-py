@@ -18,8 +18,9 @@ Puzzles
 
 Puzzle files are in plaintext, with a single line for each row of the grid.
 Islands are represented by a single digit, specifying the number of bridges
-terminating there (at most 8, as per the rules of the game). Empty spaces on
-the board are represented by the space character.
+terminating there (at most eight, since each island can have up to four
+neighbours, with up to two bridges connecting to each). Empty spaces on the
+board are represented by the space character.
 
 Solutions
 ---------

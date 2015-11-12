@@ -6,8 +6,9 @@ def load_puzzle(filename):
     Loads a ‘Bridges’ puzzle from a file.
 
     Each line in the file is treated as a row in the puzzle grid. Positive
-    digits are treated as islands, spaces and zeroes are treated as empty spaces
-    in the grid, and all other characters are rejected as invalid input.
+    single digits are treated as islands, spaces and zeroes are treated as
+    empty spaces in the grid, and all other characters are rejected as invalid
+    input.
 
     Args:
         filename: The name of a file containing the puzzle.
