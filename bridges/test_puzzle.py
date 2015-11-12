@@ -33,6 +33,12 @@ class ValidityTestCase(unittest.TestCase):
         for P in Ps:
             self.assertFalse(is_valid_puzzle(P))
 
+    def test_accept_valid_puzzle(self):
+        """Is a valid puzzle accepted?"""
+        Ps = [ [[1]], [[1, 0]], [[1, 0, 1], [0, 1, 0]] ]
+        for P in Ps:
+            self.assertTrue(is_valid_puzzle(P))
+
 
 if __name__ == '__main__':
     unittest.main()
