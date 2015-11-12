@@ -62,4 +62,10 @@ def is_valid_puzzle(puzzle):
     if len(puzzle) == 0:
         return False
 
+    # Check for mismatched row lengths
+    length = len(puzzle[0])
+    for row in puzzle:
+        if (len(row) != length):
+            return False
+
     return True
