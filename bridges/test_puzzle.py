@@ -15,5 +15,12 @@ class ValidityTestCase(unittest.TestCase):
         P = [[1, 0], [0, 0, 1]]
         self.assertFalse(is_valid_puzzle(P))
 
+    def test_reject_invalid_numbers(self):
+        """Is a puzzle with numbers other than 0–8 rejected?"""
+        Ps = [ [[9]], [[10]], [[-1]] ]
+        for P in Ps:
+            self.assertFalse(is_valid_puzzle(P))
+
+
 if __name__ == '__main__':
     unittest.main()
