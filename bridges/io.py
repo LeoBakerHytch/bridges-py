@@ -46,9 +46,9 @@ def is_valid_puzzle(puzzle):
     Takes a two-dimensional matrix of integers, and ensures that it meets the
     following criteria for being a valid ‘Bridges’ puzzle:
 
-    * Between 1 and 8 bridges may terminate at each island
-    * Rows of the puzzle grid must be the same length
-    * Islands must border empty space (or the board’s edge) on all sides
+    1) Rows of the puzzle grid must be the same length
+    2) Between 1 and 8 bridges may terminate at each island
+    3) Islands must border empty space (or the board’s edge) on all sides
 
     Args:
         puzzle: A 2D array of integers.
