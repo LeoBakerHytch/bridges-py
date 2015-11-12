@@ -68,4 +68,10 @@ def is_valid_puzzle(puzzle):
         if (len(row) != length):
             return False
 
+    # Check for validity of numeric values
+    for row in puzzle:
+        for e in row:
+            if not(0 <= e and e <= 8):
+                return False
+
     return True
