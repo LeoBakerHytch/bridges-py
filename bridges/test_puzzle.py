@@ -21,6 +21,11 @@ class ValidityTestCase(unittest.TestCase):
         for P in Ps:
             self.assertFalse(is_valid_puzzle(P))
 
+    def test_accept_valid_numbers(self):
+        """Is a puzzle with only valid numbers accepted?"""
+        P = [[1, 0, 2, 0, 3, 0, 4, 0], [0, 5, 0, 6, 0, 7, 0, 8]]
+        self.assertTrue(is_valid_puzzle(P))
+
     def test_reject_horizontally_adjacent_islands(self):
         """Is a puzzle with horizontally-adjacent islands rejected?"""
         Ps = [ [[1, 1]], [[0, 0], [1, 1]] ]
