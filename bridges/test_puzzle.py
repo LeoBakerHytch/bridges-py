@@ -10,5 +10,10 @@ class ValidityTestCase(unittest.TestCase):
         P = []
         self.assertFalse(is_valid_puzzle(P))
 
+    def test_reject_mismatched_row_lengths(self):
+        """Is a puzzle with mismatched row lengths rejected?"""
+        P = [[1, 0], [0, 0, 1]]
+        self.assertFalse(is_valid_puzzle(P))
+
 if __name__ == '__main__':
     unittest.main()
