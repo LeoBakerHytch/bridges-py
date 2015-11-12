@@ -9,6 +9,8 @@ def main():
 
     else:
         puzzle = io.load_puzzle(sys.argv[1])
+        if io.is_valid_puzzle(puzzle):
+            pass
 
 if __name__ == '__main__':
     main()

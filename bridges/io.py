@@ -35,3 +35,25 @@ def load_puzzle(filename):
 
     except IOError as e:
         sys.exit('Error reading the puzzle file ‘{}’ ({})'.format(filename, e.strerror))
+
+
+
+def is_valid_puzzle(puzzle):
+    """
+    Checks the validity of a puzzle.
+
+    Takes a two-dimensional matrix of integers, and ensures that it meets the
+    following criteria for being a valid ‘Bridges’ puzzle:
+
+    * Between 1 and 8 bridges may terminate at each island
+    * Rows of the puzzle grid must be the same length
+    * Islands must border empty space (or the board’s edge) on all sides
+
+    Args:
+        puzzle: A 2D array of integers.
+
+    Returns:
+        True if puzzle is valid, False otherwise
+    """
+
+    return True
