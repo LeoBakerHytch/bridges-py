@@ -21,6 +21,12 @@ class ValidityTestCase(unittest.TestCase):
         for P in Ps:
             self.assertFalse(is_valid_puzzle(P))
 
+    def test_reject_horizontally_adjacent_islands(self):
+        """Is a puzzle with horizontally-adjacent islands rejected?"""
+        Ps = [ [[1, 1]], [[0, 0], [1, 1]] ]
+        for P in Ps:
+            self.assertFalse(is_valid_puzzle(P))
+
 
 if __name__ == '__main__':
     unittest.main()
