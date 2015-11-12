@@ -1,3 +1,4 @@
+import os
 import sys
 
 def load_puzzle(filename):
@@ -19,7 +20,18 @@ def load_puzzle(filename):
 
     try:
         with open(filename, encoding='utf-8') as puzzle_file:
-            pass
+
+            puzzle = []
+
+            for line in puzzle_file:
+                characters = line.rstrip(os.linesep)
+                row = [ 0 if c == ' ' else int(c) for c in characters ]
+                puzzle.append(row)
+
+            return puzzle
+
+    except ValueError as e:
+        sys.exit('Not a valid puzzle file ‘{}’ ({})'.format(filename, e))
 
     except IOError as e:
         sys.exit('Error reading the puzzle file ‘{}’ ({})'.format(filename, e.strerror))
