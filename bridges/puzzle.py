@@ -58,4 +58,8 @@ def is_valid_puzzle(puzzle):
         True if puzzle is valid, False otherwise
     """
 
+    # Check for emptiness
+    if len(puzzle) == 0:
+        return False
+
     return True
