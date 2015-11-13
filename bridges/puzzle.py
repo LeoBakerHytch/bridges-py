@@ -63,9 +63,9 @@ def is_valid_puzzle(puzzle):
         return False
 
     # Check for mismatched row lengths
-    length = len(puzzle[0])
+    row_length = len(puzzle[0])
     for row in puzzle:
-        if (len(row) != length):
+        if (len(row) != row_length):
             return False
 
     # Check for validity of numeric values
@@ -76,8 +76,14 @@ def is_valid_puzzle(puzzle):
 
     # Check for horizontally-adjacent islands
     for row in puzzle:
-        for i in range(0, len(row) - 1):
-            if row[i] > 0 and row[i + 1] > 0:
+        for j in range(0, len(row) - 1):
+            if row[j] > 0 and row[i + 1] > 0:
+                return False
+
+    # Check for vertically-adjacent islands
+    for j in range(0, row_length):
+        for i in range(0, len(puzzle) - 1):
+            if puzzle[i][j] > 0 and puzzle[i + 1][j] > 0:
                 return False
 
     return True
