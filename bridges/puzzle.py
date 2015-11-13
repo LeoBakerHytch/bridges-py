@@ -74,4 +74,10 @@ def is_valid_puzzle(puzzle):
             if not(0 <= e and e <= 8):
                 return False
 
+    # Check for horizontally-adjacent islands
+    for row in puzzle:
+        for i in range(0, len(row) - 1):
+            if row[i] > 0 and row[i + 1] > 0:
+                return False
+
     return True
