@@ -1,6 +1,8 @@
 import os
 import sys
 
+import numpy as np
+
 def load_puzzle(filename):
     """
     Loads a ‘Bridges’ puzzle from a file.
@@ -74,16 +76,12 @@ def is_valid_puzzle(puzzle):
             if not(0 <= e and e <= 8):
                 return False
 
-    # Check for horizontally-adjacent islands
-    for row in puzzle:
-        for j in range(0, len(row) - 1):
-            if row[j] > 0 and row[i + 1] > 0:
-                return False
-
-    # Check for vertically-adjacent islands
-    for j in range(0, row_length):
-        for i in range(0, len(puzzle) - 1):
-            if puzzle[i][j] > 0 and puzzle[i + 1][j] > 0:
-                return False
+    # Check for adjacent islands
+    P = np.array(puzzle)
+    for A in (P, P.T):
+        for row in A:
+            for i in range(0, len(row) - 1):
+                if row[i] > 0 and row[i + 1] > 0:
+                    return False
 
     return True
