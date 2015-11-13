@@ -79,6 +79,7 @@ def is_valid_puzzle(puzzle):
     # Check for adjacent islands
     P = np.array(puzzle)
     for A in (P, P.T):
+        # Rows of P.T are equivalent to columns of P
         for row in A:
             for i in range(0, len(row) - 1):
                 if row[i] > 0 and row[i + 1] > 0:
