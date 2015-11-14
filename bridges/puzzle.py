@@ -76,7 +76,7 @@ class Puzzle:
         for row in self.matrix:
             for e in row:
                 if not(0 <= e and e <= 8):
-                    return False
+                    raise ValueError()
 
         # Check for adjacent islands
         P = np.array(self.matrix)
