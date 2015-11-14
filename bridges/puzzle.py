@@ -85,6 +85,4 @@ class Puzzle:
             for row in A:
                 for i in range(0, len(row) - 1):
                     if row[i] > 0 and row[i + 1] > 0:
-                        return False
-
-        return True
+                        raise ValueError()
