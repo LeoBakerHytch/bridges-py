@@ -47,8 +47,7 @@ class ValidityTestCase(unittest.TestCase):
         """Is a valid puzzle accepted?"""
         ps = [ [[1]], [[1, 0]], [[1, 0, 1], [0, 1, 0]] ]
         for p in ps:
-            with self.assertRaises(ValueError):
-                Puzzle(p)
+            Puzzle(p)
 
 
 if __name__ == '__main__':
