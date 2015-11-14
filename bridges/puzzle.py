@@ -6,6 +6,7 @@ class Puzzle:
 
     def __init__(self, matrix):
         self.matrix = matrix
+        self.validate()
 
 
     def load_from_file(filename):
@@ -45,7 +46,7 @@ class Puzzle:
             sys.exit('Error reading the puzzle file ‘{}’ ({})'.format(filename, e.strerror))
 
 
-    def is_valid(self):
+    def validate(self):
         """
         Checks the validity of the puzzle matrix.
 
@@ -62,23 +63,23 @@ class Puzzle:
         """
 
         # Check for emptiness
-        if len(puzzle) == 0:
-            return False
+        if len(self.matrix) == 0:
+            raise ValueError()
 
         # Check for mismatched row lengths
-        row_length = len(puzzle[0])
-        for row in puzzle:
+        row_length = len(self.matrix[0])
+        for row in self.matrix:
             if (len(row) != row_length):
                 return False
 
         # Check for validity of numeric values
-        for row in puzzle:
+        for row in self.matrix:
             for e in row:
                 if not(0 <= e and e <= 8):
                     return False
 
         # Check for adjacent islands
-        P = np.array(puzzle)
+        P = np.array(self.matrix)
         for A in (P, P.T):
             # Rows of P.T are equivalent to columns of P
             for row in A:
