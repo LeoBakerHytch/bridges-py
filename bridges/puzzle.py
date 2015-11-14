@@ -70,7 +70,7 @@ class Puzzle:
         row_length = len(self.matrix[0])
         for row in self.matrix:
             if (len(row) != row_length):
-                return False
+                raise ValueError()
 
         # Check for validity of numeric values
         for row in self.matrix:
