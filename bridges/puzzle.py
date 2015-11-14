@@ -58,8 +58,8 @@ class Puzzle:
         2) Between 1 and 8 bridges may terminate at each island
         3) Islands must border empty space (or the board’s edge) on all sides
 
-        Returns:
-            True if puzzle is valid, False otherwise
+        Raises:
+            ValueError: if any of the constraints are not met
         """
 
         # Check for emptiness
