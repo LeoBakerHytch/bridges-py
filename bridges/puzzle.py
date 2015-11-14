@@ -59,24 +59,24 @@ class Puzzle:
         3) Islands must border empty space (or the board’s edge) on all sides
 
         Raises:
-            ValueError: if any of the constraints are not met
+            ValueError: if any of the constraints are not met.
         """
 
         # Check for emptiness
         if len(self.matrix) == 0:
-            raise ValueError()
+            raise ValueError('Puzzle contains no rows')
 
         # Check for mismatched row lengths
         row_length = len(self.matrix[0])
         for row in self.matrix:
             if (len(row) != row_length):
-                raise ValueError()
+                raise ValueError('Puzzle rows not all of same length')
 
         # Check for validity of numeric values
         for row in self.matrix:
             for e in row:
                 if not(0 <= e and e <= 8):
-                    raise ValueError()
+                    raise ValueError('Puzzle contains invalid value: {}'.format(e))
 
         # Check for adjacent islands
         P = np.array(self.matrix)
@@ -85,4 +85,4 @@ class Puzzle:
             for row in A:
                 for i in range(0, len(row) - 1):
                     if row[i] > 0 and row[i + 1] > 0:
-                        raise ValueError()
+                        raise ValueError('Puzzle contains adjacent islands')
