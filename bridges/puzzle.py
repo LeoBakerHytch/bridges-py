@@ -4,6 +4,19 @@ import numpy as np
 class Puzzle:
 
     def __init__(self, matrix):
+        """
+        Instatiates a new ‘Bridges’ Puzzle from a matrix.
+
+        The matrix must be a two-dimensional array of integers (indexed by row,
+        then column) representing the puzzle, with numbers 1 to 8 for islands,
+        and 0 for empty spaces.
+
+        Args:
+            matrix: The 2D puzzle array.
+
+        Returns:
+            A new Puzzle instance.
+        """
         self.matrix = np.array(matrix)
         self.validate()
 
