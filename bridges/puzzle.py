@@ -5,7 +5,7 @@ class Puzzle:
 
     def __init__(self, matrix):
         """
-        Instatiates a new ‘Bridges’ Puzzle from a matrix.
+        Instatiates a ‘Bridges’ Puzzle from a matrix.
 
         The matrix must be a two-dimensional array of integers (indexed by row,
         then column) representing the puzzle, with numbers 1 to 8 for islands,
@@ -17,6 +17,7 @@ class Puzzle:
         Returns:
             A new Puzzle instance.
         """
+
         self.matrix = np.array(matrix)
         self.validate()
 
@@ -24,20 +25,17 @@ class Puzzle:
     @classmethod
     def from_file(cls, filename):
         """
-        Instantiates a new Puzzle with data from a file.
+        Instantiates a ‘Bridges’ Puzzle with a matrix extracted from a file.
 
-        Each line in the file is treated as a row in the puzzle grid. Positive
-        single digits are treated as islands, spaces and zeroes are treated as
-        empty spaces in the grid, and all other characters are rejected as invalid
-        input.
+        Each line in the file is treated as a row in the puzzle matrix. Digits
+        1 to 8 are treated as islands, spaces and zeroes are treated as empty
+        spaces, and all other characters are rejected as invalid input.
 
         Args:
             filename: The name of a file containing the puzzle.
 
         Returns:
-            A two-dimensional array of integers (indexed by row, then column)
-            representing the puzzle, with positive numbers for islands and zeroes
-            for empty spaces.
+            A new Puzzle instance.
         """
 
         matrix = []
