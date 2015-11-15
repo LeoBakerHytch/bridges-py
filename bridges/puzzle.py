@@ -4,7 +4,7 @@ import numpy as np
 class Puzzle:
 
     def __init__(self, matrix):
-        self.matrix = matrix
+        self.matrix = np.array(matrix)
         self.validate()
 
 
@@ -74,16 +74,14 @@ class Puzzle:
                 raise ValueError('Puzzle rows not all of same length')
 
         # Check for validity of numeric values
-        for row in self.matrix:
-            for e in row:
-                if not(0 <= e and e <= 8):
-                    raise ValueError('Puzzle contains invalid value: {}'.format(e))
+        for e in self.matrix.flat:
+            if not(0 <= e and e <= 8):
+                raise ValueError('Puzzle contains invalid value: {}'.format(e))
 
         # Check for adjacent islands
-        P = np.array(self.matrix)
-        for A in (P, P.T):
-            # Rows of P.T are equivalent to columns of P
-            for row in A:
+        for M in (self.matrix, self.matrix.T):
+            # Rows of matrix transpose are equivalent to columns of matrix
+            for row in M:
                 for i in range(0, len(row) - 1):
                     if row[i] > 0 and row[i + 1] > 0:
                         raise ValueError('Puzzle contains adjacent islands')
