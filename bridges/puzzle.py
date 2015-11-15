@@ -1,5 +1,4 @@
 import os
-import sys
 import numpy as np
 
 class Puzzle:
@@ -9,9 +8,10 @@ class Puzzle:
         self.validate()
 
 
-    def load_from_file(filename):
+    @classmethod
+    def from_file(cls, filename):
         """
-        Loads a ‘Bridges’ puzzle from a file.
+        Instantiates a new Puzzle with data from a file.
 
         Each line in the file is treated as a row in the puzzle grid. Positive
         single digits are treated as islands, spaces and zeroes are treated as
@@ -27,23 +27,24 @@ class Puzzle:
             for empty spaces.
         """
 
+        matrix = []
+
         try:
             with open(filename, encoding='utf-8') as puzzle_file:
 
-                puzzle = []
+                try:
+                    for line in puzzle_file:
+                        characters = line.rstrip(os.linesep)
+                        row = [ 0 if c == ' ' else int(c) for c in characters ]
+                        matrix.append(row)
 
-                for line in puzzle_file:
-                    characters = line.rstrip(os.linesep)
-                    row = [ 0 if c == ' ' else int(c) for c in characters ]
-                    puzzle.append(row)
-
-                return puzzle
-
-        except ValueError as e:
-            sys.exit('Not a valid puzzle file ‘{}’ ({})'.format(filename, e))
+                except ValueError as e:
+                    raise Error('Puzzle file contains invalid characters') from e
 
         except IOError as e:
-            sys.exit('Error reading the puzzle file ‘{}’ ({})'.format(filename, e.strerror))
+            raise Error('Could not read the puzzle file ‘{}’'.format(filename)) from e
+
+        return cls(matrix)
 
 
     def validate(self):
